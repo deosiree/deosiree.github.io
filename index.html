@@ -1,0 +1,688 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>这是我的第一个页面</title>
+
+                <style>
+                    /*css样式*/
+                    /*body或者其他的标签都多少有一些默认的边距影响我们的开发和处理  如何处理：margin清除所有标签的默认边距*/
+                    *{
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    /*全局设置body  字体 arial 为一个英语字体 每个电脑都有*/
+                    body{
+                        font-family: arial;
+                    }
+                    /*头部样式开始*/
+                   .header{
+
+                    width: 100%;
+                    /*100%的意思是和父级的一致，header的父级是body，而body标签指的就是浏览器的窗口*/
+                    height:629px;
+                    background-image: url(images/header-pattern.gif);
+                   }
+                   .header_inner{
+                    width: 968px;
+                    height: 625px;
+                    /*margin: 0 auto让结构水平居中*/
+                    /*'m'+'0'+'-'+'a'+tab==margin: 0 auto;*/
+                    margin: 0 auto;
+
+                   }
+                    .top{
+
+                    width: 968px;
+                    height: 161px;
+                    background-image: url(images/header-pattern.gif);
+                   }
+                    .logo{
+                        /*距离顶部和左侧有一定距离*/
+                        /*外边距（不属于我自己的地方 margin-top margin-left margin-right margin-bottom上左右下）*/
+                    margin-top: 62px;
+                    /*margin-top 经常浏览器解析错误，可以使用内间距padding（属于自己的地方）替换 */
+                    margin-left: 45px;
+                    width: 284px;
+                    height: 99px;
+
+                    background-image: url(images/logo_04_03.jpg);
+                    float: left;
+                   }
+                   /*给导航<nav></nav>写样式 可以直接使用标签名找*/
+                    nav{
+                    margin-top: 97px;
+                    width: 613px;
+                    height: 64px;
+                    float: right;
+                   }
+                   nav ul{
+                    list-style: none;
+                    /*去掉小黑点*/
+                    margin-top: 20px;
+                   }
+                   nav ul li{
+                     float: left;
+                     margin-right: 8px;
+                   }
+                   nav ul li:last-child{
+                    margin-right: 0px;
+                   }
+                   nav ul li a{
+                    display:block;
+                    width: 80px;
+                    height: 31px;
+
+                    border-radius: 8px;
+                    /*圆角*/
+                    text-align: center;
+                    /*垂直居中*/
+                    line-height: 31px;
+                    /*水平居中*/
+                    color:#fff;
+                    font-size: 14px;
+                    text-decoration: none;
+                   }
+                   /*first-child last-child nth-child(n) 必须先看child选择器 前面元素的父级 first-child 的意思就是父级的第一个子级*/
+                   nav ul li:first-child a:first-child{
+                    background-image: url(images/nav-bg.gif);
+                   }
+                   nav ul li a:hover{
+                    background-image: url(images/nav-bg.gif);
+                   }
+                   .banner{
+                    width: 968px;
+                    height: 465px;
+                   }
+                   .pic{
+                    width: 591px;
+                    height: 418px;
+                    float: left;
+                    position:relative;
+                  border: 1px solid #e46b00;
+                   }
+                   .pic .big{
+
+                    border:10px solid #d92500;
+                    border-radius: 6px;
+                   }
+                   /*有个图片要盖住其他盒子 我们就要使用定位*/
+                   /*最常用的定位方式 找参照物定位：参照物必须是被定位元素的上级*/
+                   /*实现定位：给参照物写 position：relative;    给被定位的元素写position：absolute;
+                   使用 top left right bottom 调整位置，默认是在参照物的坐上*/
+                   .pic .small{
+                    position:absolute;
+                    bottom:-10px;
+                    right: -16px;
+                    /*负的就往外走*/
+                   }
+                    .suolue{
+                        margin-top: 10px;
+                        width: 357px;
+                        height: 377px;
+                        float: left;
+                        background-color: #2d2d2d;
+                        padding-top: 24px;
+                    }
+                    /*.suolue>div的意思是选子集div*/
+                    .suolue>div{
+                        width: 100%;
+                        background-color: #2d2d2d;
+                        color:#747470;
+                        /*鼠标经过的手势变成小手*/
+                        cursor:pointer;
+                    }
+                    .suolue>div:nth-child(2){
+                        /*找第二个子级*/
+                        width: 100%;
+                        height: 114px;
+                        background-color: #1d1d1d;
+                        color:#fff;
+
+                    }
+                    /*划过 one,two,three 大盒子的时候背景色改变而且里面的字变色 字体颜色会继承*/
+                    .suolue>div:hover{
+                        background-color: #1d1d1d;
+                        color:#fff;
+
+                    }
+                    .suolue>div .inner{
+                        width: 334px;
+                        padding-top: 15px;
+                        height: 98px;
+                        /*m0auto+tab*/
+                        margin: 0 auto;
+                        border-bottom: 1px dashed #4b4b4b;
+
+                    }
+                    .suolue>div .inner img{
+                        float: left;
+                        margin-right: 27px;
+                    }
+                    .suolue>div .inner ul{
+                        float: left;
+                        text-decoration: none;
+                        list-style: none;
+                        margin-right: 41px;
+                    }
+                    .suolue>div .inner ul:last-child{
+                        margin-right: 0px;
+                    }
+                    .suolue>div:last-child .inner {
+                        border-bottom: none;
+                    }
+                    .suolue>div .inner ul li{
+                    margin-top: 15px;
+                    font-size: 12px;
+                    /*font-weight粗细  lighter细 bold粗 normal正常（标题默认为粗体）*/
+                    font-weight: normal;
+                    /*由于字族设置比较麻烦，所以暂用默认的*/
+                    }
+                    .suolue>div .inner ul li:first-child{
+                        margin-top: 6px;
+                    }
+                   /*头部样式结束*/
+
+                    /*主体样式开始*/
+                   .main{
+                    padding:1px;
+                    width:100%;
+                    height: 825px;
+                    background-color: #121212;
+                    margin:0 auto;
+                   }
+                   .main_inner{
+                    width: 970px;
+                    height: 745px;
+                    margin:0 auto;
+                   }
+                   .main_inner h3{
+
+                    /*字体大小font-size 一般都是偶数*/
+                    margin-bottom: 21px;
+                    font-size: 32px;
+                    /*字体颜色color*/
+                    color:#fefefe;
+                    /*font-style: italic斜体*/
+                    font-style: italic;
+                    /*font-weight粗细  lighter细 bold粗 normal正常（标题默认为粗体）*/
+                    font-weight: normal;
+                    /*由于字族设置比较麻烦，所以暂用默认的*/
+                   }
+                   .left{
+                    width:600px;
+                    height: 735px;
+                    float: left;
+                   }
+                   .lefttop{
+                    width:600px;
+                    height: 326px;
+                    /*边界的边框的虚线*/
+                    border-bottom: 1px dashed #323232;
+                   }
+                   .lefttop h3{
+                    /*margin-top:58px;*/
+                    /*margin-top解析出错 把h2的 margin-top 解析到left-top*/
+                    /*换成父级的padding*/
+                    /*padding会在高的基础上加，所以要减掉多余的高*/
+                    padding-top: 58px;
+                   }
+                   /*多重选择.lefttop .p-one,.lefttop .p-three*/
+                    .lefttop .p-one,.lefttop .p-three{
+                        /*最小字体大小设置12px*/
+                    font-size: 12px;
+                    color:#c0c0c0;
+                    padding-right: 76px;
+                    }
+                    .lefttop .p-two{
+                    font-size: 12px;
+                    margin-top: 8px;
+                    margin-bottom: 18px;
+                    color:#616161;
+                    }
+                   .leftfooter{
+                    padding: 1px;
+                    width:600px;
+                    height: 410px;
+                   }
+                    .leftfooter h3{
+                        padding-top:38px;
+                    }
+                   .leftfooter p{
+                    font-size: 15px;
+                    font-style: italic;
+                    /*行高（从上一行最短拉到下一行最高来量）line-height*/
+                    line-height: 20px;
+                    font-weight: lighter;
+                    color:#909090;
+                   }
+                   .leftfooter .pics{
+                    width: 590px;
+                    height: 211px;
+                   }
+                   /*大于号>的意思是子级选择*/
+                   .leftfooter .pics>img{
+                   /*.leftfooter .pics>img{要注意，leftfooter 后有空格.pics*/
+                    /*边框：1px（宽度） solid（线形） #fff(颜色)*/
+                    border: 4px solid #fff;
+                    /*圆角*/
+                    border-radius: 4px;
+                    /* <img src="" alt="" />中的/代表了回车导致img之间自带了边距   怎么处理（删除自带的边距自己设置）*/
+                    /*只有img标签挨着img标签的时候才会出现*/
+                    /*display:block;(d+b+tab)把不是默认竖排的标签变成竖排的*/
+                    display:block;
+                    float: left;
+                    /*再加上和右边距*/
+                    margin-right: 9px;
+                    margin-top: 14px;
+                    /*transition监听样式的改变 将改变的过程加上时间*/
+                    /*transition：样式名（all） 时间*/
+                    transition: transform 0.5s;
+                   }
+                   /*制作划图交互*/
+                   /*.leftfooter .pics>img:hover放大的样式*/
+                   .leftfooter .pics>img:hover{
+                        /*放大1.5,rotate旋转*/
+                        transform: scale(1.5) rotate(360deg);
+                        border: 4px solid orange;
+                        border-radius: 4px;
+                   }
+                   /*设置超链接 a 自带下划线  默认颜色为蓝色 a默认不能设置大小*/
+                   .left a{
+                    color: #fff;
+                    font-size: 14px;
+                    font-weight: bold;
+                    /*下划线underline   去掉none  中划线line-through*/
+                    text-decoration: none;
+                    /*不能设置大小的标签 加上db 就可以设置大小 默认就变成竖排了*/
+                    display: block;
+                    width: 93px;
+                    height: 35px;
+                    /*设置渐变背景*/
+                    background: linear-gradient(#ec2800,#b21e00)  ;
+                    border-radius: 4px;
+                    /*文字要居中*/
+                    /*水平center left right */
+                    text-align: center;
+                    /*垂直*/
+                    line-height: 35px;
+                    margin-top: 14px;
+                    transition: all 0.5s;
+                   }
+                   .left a:hover{
+                        color:#000;
+                        /*因为上面设置的是background，要修改成background-color不能生效，需要修改background*/
+                        background: #fff;
+                        transform: scale(1.1);
+                   }
+                   .right{
+                    width:293px;
+                    height: 735px;
+                    float: right;
+                   }
+                   .righttop{
+                    width:250px;
+                    height: 346px;
+                    /*渐变色*/
+                    background:linear-gradient(#b5c83c,#bed142);
+                    border-radius: 8px;
+                    margin-top: 35px;
+                    padding-left: 21px;
+                    padding-right: 22px;
+                   }
+                   .righttop h3{
+                    padding-top: 28px;
+                     /*字体大小font-size 一般都是偶数*/
+                    margin-bottom: 24px;
+                    border-bottom: 1px solid #ccc;
+                    font-size: 26px;
+                    color:#121212;
+                    height: 84px;
+                   }
+                   .righttop .line{
+                    width: 293px;
+                    height: 2px;
+                    background-image: url(images/bd_bot.gif);
+                   }
+                   .righttop ul{
+                    /*去掉小点（列表符号）*/
+                    list-style: none;
+                   }
+                   /*每个列表项（li）都有对应的高度 列表项内的文字和图片都是垂直居中*/
+                   /*图片和文字要实现垂直居中，要同时加上vertical-align: middle;*/
+                   .righttop ul li{
+                    margin-bottom: 10px;
+                   }
+                   .righttop ul li img{
+                    vertical-align: middle;
+                   }
+                   .righttop ul li a{
+                    /*字体*/
+                    font-size:16px ;
+                    color:#000;
+                    margin-left: 16px;
+                    vertical-align: middle;
+                   }
+                   /*划过时的交互hover*/
+                   .righttop ul li a:hover{
+                    /*去掉下划线*/
+                    text-decoration: none;
+                   }
+                   .rightfooter{
+                    width:262px;
+                    height: 295px;
+                    padding-top: 31px;
+                   }
+                   .rightfooter h3{
+                    padding-top: 42px;
+                   }
+                   .rightfooter ul{
+                    width: 130px;
+                    height: 69px;
+                    float: left;
+                    /*列表默认存在列表符号 小黑点*/
+                    /*去小黑点*/
+                    list-style: none;
+                   }
+                   .rightfooter ul li{
+                    margin-bottom: 6px;
+                    /*默认给六个li都加了上间距，其实每个ul的li不需要加*/
+                   }
+                   .rightfooter ul li:first-child{
+                    /*每个ul下面的第一个li*/
+                   }
+                   .rightfooter ul li img{
+                    vertical-align: middle;
+                    margin-left: 5px;
+                   }
+                   .rightfooter ul li a{
+                    /*字体*/
+                    font-size:12px ;
+                    color:#fff;
+                    margin-bottom: 11px;
+                    margin-left: 8px;
+                    vertical-align: middle;
+                   }
+                   /*划过时的交互hover*/
+                   .rightfooter ul li a:hover{
+                    text-decoration: none;
+                     /*去掉下划线*/
+                   }
+
+
+                   /*方案二要多加的样式*/
+                      /*列表项前面的图片也能点击，这种列表的做法：图片不使用img去写，而是用 背景图去写*/
+                   /*给a写背景图 不使用img*/
+                   .rightfooter ul li a{
+                    background-image: url(images/arrow1.gif);
+                    /*背景图默认平铺（重复）*/
+                    background-repeat: no-repeat;
+                    /*不重复*/
+                    /*padding-left:12px;可以用内间距挤出来*/
+                    display:block;
+                    /*让不能设置大小的设置大小*/
+                    text-indent: 12px;
+                    /*或者用首行缩进：前提是该样式只能给写大小的标签用，而 a 是默认不能设置大小的*/
+                    background-position:0 center ;
+                    /*图片的位置： 水平（可写left px center right） 垂直(可写top px center bottom*/
+                   }
+                   /*主体样式结束*/
+
+                   /*底部样式开始*/
+                   .footer{
+                    width:100%;
+                    height:154px;
+                    background-color: #1d1d1d;
+                    border-top:1px solid #292929;
+                    /*边框*/
+                   }
+                   .footer_inner{
+                    padding-top: 44px;
+                    margin:0 auto;
+                    /*能设置大小的盒子水平居中*/
+                    width: 970px;
+                    height: 34px;
+                   }
+                   .footer_inner p:first-child a{
+                    font-size: 12px;
+                    color:#777;
+                    text-decoration: none;
+                    border-right: 1px solid #777;
+                    /*给左边加上了划线*/
+                    padding-right:12px;
+                    padding-left: 12px;
+                   }
+                   .footer_inner p:first-child a:last-child{
+                    border-right: none;
+                   }
+                   .footer_inner p:first-child a:first-child{
+                    padding-left: 0;
+                   }
+                    .footer_inner p:first-child a:hover{
+                        color:#fff;
+                    }
+                    .footer_inner p:last-child{
+                        margin-top: 13px;
+                    }
+                    .footer_inner p:last-child span{
+                    font-size: 12px;
+                    color:#e1d6b6;
+                    text-decoration: none;
+                    word-spacing: 10px;
+                    /*单词/字之间的间距*/
+                   }
+                    .footer_inner p:last-child a{
+                    font-size: 12px;
+                    color:#777;
+                    padding-left: 12px;
+                   }
+                   .footer_inner p:last-child a:hover{
+                    text-decoration: none;
+                   }
+                   /*底部样式结束*/
+                </style>
+    </head>
+
+    <body>
+
+    <div class="header">
+    <!-- header_inner用来装头部的主体结构 -->
+        <div class="header_inner">
+            <div class="top">
+            <!-- 无专门标签代表logo，就使用div -->
+            <!-- 页面的logo如何处理 当作背景图，大小必须和图片一样大 -->
+                <div class="logo"></div>
+                <!-- nav标签代表导航 -->
+                <nav>
+                    <!-- 一般导航也都是用列表写的 -->
+                    <!-- ul>li*7>a+tab -->
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Selling</a></li>
+                        <li><a href="">Buying</a></li>
+                        <li><a href="">Renting</a></li>
+                        <li><a href="">Moving</a></li>
+                        <li><a href="">Finance</a></li>
+                        <li><a href="">Contacts</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="banner">
+                <div class="pic">
+                    <img class="big" src="images/big-img2.jpg" alt="" />
+                    <img class="small" src="images/extra-banner.png" alt="" />
+                </div>
+
+                <div class="suolue">
+                    <div class="one">
+                    <!-- one代表外盒用来做划过 改变颜色，里边的inner 用来做变框 -->
+                        <div class="inner">
+                            <img src="images/f_thumb1.png" alt="" />
+                           <ul>
+                                <li>Villa</li>
+                                <li>2010 year</li>
+                                <li>4200 sq.ft</li>
+                            </ul>
+                            <ul>
+                                <li>Brick, glass</li>
+                                <li>4 beds</li>
+                                <li>3 baths</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="two">
+                        <div class="inner">
+                            <img src="images/f_thumb2.png" alt="" />
+                           <ul>
+                                <li>Villa</li>
+                                <li>2010 year</li>
+                                <li>4200 sq.ft</li>
+                            </ul>
+                            <ul>
+                                <li>Brick, glass</li>
+                                <li>4 beds</li>
+                                <li>3 baths</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="three">
+                        <div class="inner">
+                            <img src="images/f_thumb3.png" alt="" />
+                            <ul>
+                                <li>Villa</li>
+                                <li>2010 year</li>
+                                <li>4200 sq.ft</li>
+                            </ul>
+                            <ul>
+                                <li>Brick, glass</li>
+                                <li>4 beds</li>
+                                <li>3 baths</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+    <div class="main">
+        <div class="main_inner">
+            <div class="left">
+                <div class="lefttop">
+                    <h3>Welcome Message</h3>
+                    <p class="p-one">LOREM IPSUM DOLOR SIT AMET CONSECTETUER ADIPISCING ELIT PRAESENT VESTIBULUM MOLES TIE LACUSENEANE NONUMMY HENDRERIT MAURIS PHASELLUS PORTUSCE</p>
+                    <p class="p-two">Nulla dsce feugiat malesuada odiobi nunc odio gravida at cursus nec luctusa loremaece nas trism dolor sit aconsecteetuer adipiscinges elitraesent</p>
+                    <p class="p-three">Aenean nonummy hendrerit maurihasellus portsce suscipit varium sociis natoque penatibus et magnis dis parturienetontes nascetur ridiculus musulla dutusce feugiat malesuada odorbi nunc odio gravida at cursus nec luctus alorem. Maecenas tristique orci ac sem. Duis ultricies pharetra magna. Donec accum san malesuada orci.</p>
+                    <a href="http://39.106.13.95/ranklist.php">Read More</a>
+                </div>
+                <div class="leftfooter">
+                    <!-- h1-6代表标题标签  h1一般用来作logo用 -->
+                    <h3>New Remodeling Rooms</h3>
+                    <!-- p标签代表段落 -->
+                    <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus musulla duis. Fuscecer feugiat malesuada odio. Morbi nunc odio, gravida at cursus nece luctus alorem. Maececnas tristique orci ac sem. Duis ultricies pharetra magna.</p>
+                    <div class="pics">
+                        <!-- 一堆图片 -->
+                        <!-- alt表示图片找不到时的提示词 -->
+                        <img src="images/thumb1.jpg" alt="" />
+                        <img src="images/thumb2.jpg" alt="" />
+                        <img src="images/thumb3.jpg" alt="" />
+                        <img src="images/thumb4.jpg" alt="" />
+                        <img src="images/thumb5.jpg" alt="" />
+                        <img src="images/thumb6.jpg" alt="" />
+                        <img src="images/thumb7.jpg" alt="" />
+                        <img src="images/thumb8.jpg" alt="" />
+                        <img src="images/thumb9.jpg" alt="" />
+                        <!-- <img src="" alt="" />中的/代表了回车导致img之间自带了边距 -->
+
+                    </div>
+                    <!-- a代表超链接  href=""里写超链接的地址  <a>中间写字<a> -->
+                    <a href="http://39.106.13.95/ranklist.php">Read More</a>
+                    <!-- h2 a p都是常用标签，所以没有取名字，我们可以通过后代的选择方式去选择，例.leftfooter h3 -->
+                </div>
+            </div>
+            <div class="right">
+                <div class="righttop">
+                    <h3>5 Keys to Real Estate Sales Success</h3>
+                    <p> <!-- 列表ul>li*5(*5就是五行) -->
+                    <!-- ul里面只能放li -->
+                    <ul>
+                        <!-- img+tab放图 -->
+                        <li><img src="images/icon1.gif" alt="" /><a href="">Prospecting</a></li>
+                        <li><img src="images/icon2.gif" alt="" /><a href="">Listing Appointments</a></li>
+                        <li><img src="images/icon3.gif" alt="" /><a href="">Open House</a></li>
+                        <li><img src="images/icon4.gif" alt="" /><a href="">Buyer's Appointment</a></li>
+                        <li><img src="images/icon5.gif" alt="" /><a href="">Thank You</a></li></p>
+                </div>
+                <div class="rightfooter">
+                    <h3>Find Our Office</h3>
+                    <img src="images/map.jpg" alt="图片未找到的提示信息" />
+                    <!-- ul>li*6+tab     -->
+
+                    <!-- 方案一 -->
+                   <!--  <ul>
+                        <li><img src="images/arrow1.gif" alt="" /><a href="">North America</a></li>
+                        <li><img src="images/arrow1.gif" alt="" /><a href="">Europe</a></li>
+                        <li><img src="images/arrow1.gif" alt="" /><a href="">Latin America</a></li></p>
+                    </ul>
+                    <ul>
+                          <li><img src="images/arrow1.gif" alt="" /><a href="">Asia</a></li>
+                        <li><img src="images/arrow1.gif" alt="" /><a href="">Australia</a></li>
+                        <li><img src="images/arrow1.gif" alt="" /><a href="">Africa</a></li></p>
+                    </ul> -->
+
+                    <!-- 方案二 -->
+                    <ul>
+                        <li><a href="">North America</a></li>
+                        <li><a href="">Europe</a></li>
+                        <li><a href="">Latin America</a></li></p>
+                    </ul>
+                    <ul>
+                          <li><a href="">Asia</a></li>
+                        <li><a href="">Australia</a></li>
+                        <li><a href="">Africa</a></li></p>
+                    </ul>
+
+                    <div class="line"></div>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+
+
+
+
+        <div class="footer_inner">
+            <p><a href="">HOME</a>
+            <a href="">SELLING</a>
+            <a href="">BUYING</a>
+            <a href="">RENTING</a>
+            <a href="">MOVING</a>
+            <a href="">FINANCE</a>
+            <a href="">CONTACTS</a></p>
+
+
+            <!-- <span></span>表示不能点 -->
+            <!-- <p><span>REAL ESTATE  @  2010</span>中间间距多打空格不能生效   -->
+            <!-- 1.可用&nbsp；代表一个空格 -->
+            <!-- <p><span>REAL&nbsp；ESTATE&nbsp；&nbsp；@&nbsp；&nbsp；2010</span> -->
+            <!-- 2.在样式中设置字间距 -->
+            <p><span>REAL ESTATE  @  2010</span>
+            <a href="">Privacy Policy</a></p>
+        </div>
+    </div>
+
+    </body>
+</html>
+
+
+
